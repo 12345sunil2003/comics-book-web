@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Book Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* CSS */
+.button-8 {
+  background-color: #A2B2FC;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+
+}
+
+.button-8:hover,
+.button-8:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+.button-8:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-8:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}
+    </style>
+    <style>
+        /* Basic Styles - Customize as needed */
+.favorite-icon {
+    color: #9BABF6;
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.favorite-icon.favorite-filled {
+    color: red; /* Change to your preferred color */
+}
+
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .book-image {
+            float: left;
+            max-width: 200px;
+            margin-right: 20px;
+            padding: 10px;
+        }
+        .book-details {
+            overflow: hidden;
+        }
+        .book-title {
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+        }
+        .favorite-icon {
+            color: #9BABF6;
+            font-size: 24px;
+            margin-right: 5px;
+        }
+        .rating {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .rate-button {
+            background-color: #9BABF6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .book-description {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<script>
+{% for m in messages %}
+      alert('{{ m }}');
+{% endfor %}
+
+
+</script>
+    <div class="container" style="margin-top:50px;">
+        <div class="book-image" style="margin-left:100px;">
+            <img src="{{x.logo.url}}" alt="Book Image">
+        </div>
+
+        <div class="book-details" style="margin-top:50px;">
+            <div style="margin-left:700px;">
+                <a href="/like_button/{{x.id}}/"><span class="favorite-icon" id="like-button">&#9825;</span></a>
+                <span class="rating">9.79</span>
+                <button class="rate-button">Rate</button>
+            </div>
+            <h1 class="book-title">{{x.title}}</h1>
+
+            <script>
+    $(document).ready(function () {
+        var isLiked = false;
+
+        // When the heart icon is clicked
+        $("#like-button").click(function () {
+            if (isLiked) {
+                // Handle unlike logic here (e.g., send an AJAX request to remove the like)
+                // Example:
+                // $.post('/unlike/', { book_id: {{x.id}} }, function(data) {
+                //     // Handle the response and update the UI
+                // });
+                $(this).css("color", "#9BABF6");
+                isLiked = false;
+            } else {
+                // Handle like logic here (e.g., send an AJAX request to add the like)
+                // Example:
+                // $.post('/like/', { book_id: {{x.id}} }, function(data) {
+                //     // Handle the response and update the UI
+                // });
+                $(this).css("color", "red");
+                isLiked = true;
+            }
+        });
+    });
+</script>
+
+            {% if x.status == 'paid' %}
+    <h3>${{ x.price }}</h3>
+            {% else%}
+            <p>{{x.status| upper}}</p>
+{% endif %}
+
+
+            <div class="book-description" style="margin-top:100px;">
+                <p>{{x.description}}</p>
+            </div>
+        </div>
+        <!-- HTML !-->
+      {% if x.status == 'free' or x.status == 'paid' and x.id == book_id and u.id == user_id %}
+    <a href="/final/{{ x.id }}/">
+        <button class="button-8" role="button" style="width:200px; color:white; margin-left:500px; margin-top:30px;">Start</button>
+    </a>
+{% else %}
+    <a href="/error/{{ x.id }}">
+        <button class="button-8" role="button" style="width:200px; color:white; margin-left:500px; margin-top:30px;">Start</button>
+    </a>
+{% endif %}
+
+
+
+
+
+    </div>
+{% endblock %}
+
+
+</body>
+</html>

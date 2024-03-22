@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Importing Google font - Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+.top-nav ul li  a:hover{
+	color:#fff;
+}
+.top-nav ul li a.color1:hover {
+    background: #bbd2f9;
+}
+.top-nav ul li a.color2:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color3:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color4:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color5:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color6:hover{
+	background:#bbd2f9;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: #bbd2f9;
+}
+
+body {
+    margin: 0; /* Remove default body margin */
+}
+
+
+
+
+
+@media screen and (max-width: 980px) {
+    .card-list {
+        margin: 0px auto 0; /* Adjust the top margin for smaller screens */
+    }
+}
+
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    max-width: 1250px;
+    margin: 50px auto 0;
+    padding: 20px;
+    gap: 20px;
+}
+
+.card-list .card-item {
+    background: #fff;
+    padding: 26px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+    list-style: none;
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: border 0.5s ease;
+}
+
+.card-list .card-item:hover {
+    border: 2px solid #000;
+}
+
+.card-list .card-item img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.card-list span {
+    display: inline-block;
+    background: #F7DFF5;
+    margin-top: 32px;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.card-list .developer {
+    background-color: #F7DFF5;
+    color: #B22485;
+}
+
+.card-list .designer {
+    background-color: #d1e8ff;
+    color: #2968a8;
+}
+
+.card-list .editor {
+    background-color: #d6f8d6;
+    color: #205c20;
+}
+
+.card-item h3 {
+    color: #000;
+    font-size: 1.438rem;
+    margin-top: 28px;
+    font-weight: 600;
+}
+
+.card-item .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-35deg);
+    height: 40px;
+    width: 40px;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-top: 40px;
+    transition: 0.2s ease;
+}
+
+.card-list .card-item:hover .arrow  {
+    background: #000;
+    color: #fff;
+}
+
+@media (max-width: 1200px) {
+    .card-list .card-item {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .card-list {
+        margin: 0 auto;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div class="card-list">
+
+        <a href="/action/" class="card-item">
+            <img src="{% static 'images/a.png' %}" alt="🎬">
+
+            <span class="developer">Action</span>
+            <h3>A Haven for Action Drama Enthusiasts.</h3>
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+            </div>
+        </a>
+
+        <a href="/romance/" class="card-item">
+            <img src="{% static 'images/watch-movie.png' %}" alt="Card Image">
+            <span class="designer">Romance</span>
+            <h3>Embracing the Allure of Romance Drama.</h3>
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+            </div>
+        </a>
+
+        <a href="/drama/" class="card-item">
+            <img src="{% static 'images/theater.png' %}" alt="Card Image">
+            <span class="editor">Drama</span>
+            <h3> Navigating the Depths of Human Emotion.</h3>
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+            </div>
+        </a>
+
+         <a href="/comedy/" class="card-item">
+            <img src="{% static 'images/romantic.png' %}" alt="Card Image">
+            <span class="editor">Comedy</span>
+            <h3>The Comedy Drama Enclave.</h3>
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+            </div>
+         </a>
+
+         <a href="/horror/" class="card-item">
+            <img src="{% static 'images/horror.png' %}" alt="Card Image">
+            <span class="editor">Horror</span>
+            <h3>The Horror Drama Enthusiasts' Sanctuary.</h3>
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+            </div>
+
+         </a>
+
+         <a href="/thriller/" class="card-item">
+            <img src="{% static 'images/thriller.png' %}" alt="Card Image">
+            <span class="editor">Thriller</span>
+            <h3>The action Drama Enthusiasts' Sanctuary.</h3>
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+            </div>
+         </a>
+    </div>aa
+</body>
+{% endblock %}
+</html>

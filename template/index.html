@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+	{% load static %}
+<head>
+<title>Comic Home</title>
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Games Center Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+
+<style>
+	img{
+		height:250px;
+		width: 200px;
+	}
+.top-nav ul li  a:hover{
+	color:#fff;
+}
+.top-nav ul li a.color1:hover {
+    background: #bbd2f9;
+}
+.top-nav ul li a.color2:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color3:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color4:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color5:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color6:hover{
+	background:#bbd2f9;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}" />
+</head>
+<body>
+<script>
+
+{% for m in messages %}
+      alert('{{ m }}');
+{% endfor %}
+
+</script>
+<!--header-->
+<div class="header"  >
+	<div class="top-header" style="background-color: #A2B2FC;" >
+		<div class="container" style="background-color: #A2B2FC;">
+		<div class="top-head" style="background-color: #A2B2FC;">
+			<ul class="header-in">
+
+			</ul>
+				<div class="search">
+    <input type="text" placeholder="search comic title here ?"  id="searchInput"  oninput="filterTable()" >
+    <input type="submit" value="" >
+</div>
+
+				<div class="clearfix"> </div>
+		</div>
+		</div>
+	</div>
+		<!---->
+
+		<div class="header-top">
+		<div class="container">
+		<div class="head-top">
+			<div class="logo">
+
+				<a href="/comichome/"><img style="height:50px;" src="{% static 'images/logo1.png'%}" alt="">
+
+			</div>
+		<div class="top-nav">
+			  <span class="menu"><img src="{% static 'images/1.jpg' %}" alt=""> </span>
+
+					<ul>
+						<li class="active"><a class="color1" href="/comichome/"  >Home</a></li>
+						<li><a class="color2" href="/category/"  >Category</a></li>
+						<li><a class="color3" href="/up_comic/"  >Upload</a></li>
+						<li><a class="color4" href="/favourite/" >Favourite</a></li>
+						<li><a class="color5" href="/profile/"  >Profile</a></li>
+						<li><a class="color6" href="/logout/" >Logout</a></li>
+						<div class="clearfix"> </div>
+					</ul>
+
+					<!--script-->
+				<script>
+					$("span.menu").click(function(){
+						$(".top-nav ul").slideToggle(500, function(){
+						});
+					});
+			</script>
+
+				</div>
+
+				<div class="clearfix"> </div>
+		</div>
+		</div>
+	</div>
+
+</div>
+<!--banner-->
+
+{% block content %}
+
+<!--content-->
+<div class="content">
+	<div class="container">
+			<div class="content-top">
+				<h2 class="new">New Update</h2>
+
+			<div class="wrap">
+			<div class="main">
+
+				<ul id="comicList" class="og-grid sel">
+    {% for i in con %}
+        <li>
+            <a style="text-decoration:none;" href="/new/{{i.id}}/" data-largesrc="images/1.jpg" data-title="Subway Surfers" data-description="...">
+                <img class="img-responsive" src="{{ i.logo.url }}" style="width:250px;height:260px;"  alt="img01"/>
+                <p>{{ i.title }}</p>
+
+
+            </a>
+        </li>
+    {% endfor %}
+    <div class="clearfix"> </div>
+</ul>
+
+				</div>
+			</div>
+		</div>
+
+<script>
+function filterTable() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('searchInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('comicList');
+    li = ul.getElementsByTagName('li');
+
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName('p')[0]; // Change this line to target the <p> tag
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = '';
+        } else {
+            li[i].style.display = 'none';
+        }
+    }
+}
+</script>
+
+
+		<script>
+			$(function() {
+				Grid.init();
+			});
+		</script>
+	</div>
+
+		<div class="featured">
+			<div class="container">
+				<div class="col-md-4 latest">
+					<h4>Trending</h4>
+					{% for article in fav_values %}
+					<div class="late">
+						<a href="/new/{{article.id}}/" class="fashion"><img class="img-responsive " src="{{ article.logo.url }}" alt=""></a>
+						<div class="grid-product">
+							<span>{{ article.created_at }}</span>
+							<p><a href="single.html">{{ article.title }}</a></p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					{% endfor %}
+				</div>
+
+				<div class="col-md-4 latest">
+					<h4>Latest</h4>
+					{% for article in latest_articles %}
+					<div class="late">
+
+						<a href="/new/{{article.id}}/" class="fashion"><img class="img-responsive " src="{{ article.logo.url }}" alt=""></a>
+						<div class="grid-product">
+							<span>{{ article.created_at }}</span>
+							<p><a href="single.html">{{ article.title }}</a></p>
+						</div>
+						<div class="clearfix"> </div>
+
+					</div>
+					{% endfor %}
+				</div>
+
+
+				<div class="col-md-4 latest">
+					<h4>Featured</h4>
+					{% for article in featured_articles %}
+					<div class="late">
+
+						<a href="/new/{{article.id}}/" class="fashion"><img class="img-responsive " src="{{ article.logo.url }}" alt=""></a>
+						<div class="grid-product">
+							<span>{{ article.created_at }}</span>
+							<p><a href="single.html">{{ article.title }}</a></p>
+						</div>
+						<div class="clearfix"> </div>
+
+					</div>
+					{% endfor %}
+				</div>
+
+
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!---->
+
+</body>
+{% endblock %}
+</html>

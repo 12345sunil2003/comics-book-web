@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Book</title>
+  <link rel="stylesheet" href="{% static 'upload_comic/style.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+<script>
+
+{% for m in messages %}
+      alert('{{ m }}');
+{% endfor %}
+
+</script>
+<br><br>
+<div class="bb">
+   <div class="wrapper">
+    <header>Create Post</header>
+    <form action="/update/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="dbl-field">
+        <div class="field">
+          <input type="number" name="id" placeholder="Enter your id">
+          <i class='fas fa-user'></i>
+        </div>
+
+        <div class="field">
+          <input type="file" name="image1" placeholder="Upload Image">
+          <i class='fas fa-envelope'></i>
+        </div>
+          <div class="field">
+          <input type="file" name="image2" placeholder="Upload Image">
+          <i class='fas fa-envelope'></i>
+        </div>
+          <div class="field">
+          <input type="file" name="image3" placeholder="Upload Image">
+          <i class='fas fa-envelope'></i>
+        </div>
+      </div>
+      <div class="dbl-field">
+<!--        <div class="field">-->
+<!--          <input type="text" name="category" placeholder="Enter your Category">-->
+<!--          <i class='fas fa-user'></i>-->
+<!--        </div>-->
+
+      </div>
+
+<!--      <div class="message">-->
+<!--        <textarea placeholder="Enter story here" name="message" ></textarea>-->
+<!--        <i class="material-icons">message</i>-->
+<!--      </div>-->
+      <div class="button-area">
+        <button type="submit">Post</button>
+        <span></span>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+  <script></script>
+{% endblock %}
+</body>
+</html>

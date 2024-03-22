@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+	{% load static %}
+<head>
+<title>Favourite</title>
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />	
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Games Center Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<script src="{% static 'js/modernizr.custom.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}" />
+	<style>
+.top-nav ul li  a:hover{
+	color:#fff;
+}
+.top-nav ul li a.color1:hover {
+    background: #bbd2f9;
+}
+.top-nav ul li a.color2:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color3:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color4:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color5:hover{
+	background:#bbd2f9;
+}
+.top-nav ul li a.color6:hover{
+	background:#bbd2f9;
+}
+	</style>
+</head>
+<body> 
+<!--header-->	
+<div class="header" >
+	<div class="top-header" style="background-color:#A2B2FC;" >
+		<div class="container">
+		<div class="top-head" >	
+
+<!--			-->
+<!--				<div class="search">-->
+<!--					<form>-->
+<!--						<input type="text" value="search about something ?" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'search about something ?';}" >-->
+<!--						<input type="submit" value="" >-->
+<!--					</form>-->
+<!--				</div>-->
+			
+				<div class="clearfix"> </div>
+		</div>
+		</div>
+	</div>
+		<!---->
+	
+		<div class="header-top">
+		<div class="container">
+		<div class="head-top">
+			<div class="logo">
+			<a href="/comichome/"><img style="height:50px;" src="{% static 'images/logo1.png'%}" alt="">
+			</div>
+		<div class="top-nav">		
+			  <span class="menu"><img src="images/menu.png" alt=""> </span>
+				
+					<ul>
+						<li class="active"><a class="color1" href="/comichome/"  >Home</a></li>
+						<li><a class="color2" href="/category/"  >Category</a></li>
+						<li><a class="color3" href="/up_comic/"  >Upload</a></li>
+						<li><a class="color4" href="/favourite/" >Favourite</a></li>
+						<li><a class="color5" href="/profile/"  >Profile</a></li>
+						<li><a class="color6" href="/logout/" >Logout</a></li>
+						<div class="clearfix"> </div>
+					</ul>
+
+					<!--script-->
+				<script>
+					$("span.menu").click(function(){
+						$(".top-nav ul").slideToggle(500, function(){
+						});
+					});
+			</script>
+
+				</div>
+				
+				<div class="clearfix"> </div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<!--content-->
+	<div class="container">
+			<div class="games">
+				<h2> Favourite</h2>
+			
+			<div class="wrap" >
+			<div class="main">
+				<ul id="og-grid" class="og-grid">
+					{% for i in fav %}
+					<li >
+						<a  href="/new/{{i.id}}/" data-largesrc="images/1.jpg" data-title="Subway Surfers" data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque malesuada purus a convallis dictum. Phasellus sodales varius diam, non sagittis lectus. Morbi id magna ultricies ipsum condimentum scelerisque vel quis felis.. Donec et purus nec leo interdum sodales nec sit amet magna. Ut nec suscipit purus, quis viverra urna.">
+							<img class="img-responsive" src="{{i.logo.url}}" alt="img01"/>
+							<div style="text-align:center; justify-content:center;margin-right:120px;">
+								<p>{{i.title}}</p>
+							</div>
+
+						</a>
+					</li>
+					{% endfor %}
+					 <div class="clearfix"> </div>
+					</ul>
+				</div>
+			</div>
+		</div>
+<script src="js/grid.js"></script>
+		<script>
+			$(function() {
+				Grid.init();
+			});
+		</script>
+	</div>
+	<!---->
+	
+
+</body>
+</html>

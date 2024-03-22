@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Profile</title>
+    <link href='#' rel='stylesheet'>
+    <link href='#' rel='stylesheet'>
+    <script type='text/javascript' src='#'></script>
+    <style>
+    a{
+    text-decoration:none;
+    }
+    ::-webkit-scrollbar {
+                                  width: 8px;
+                                }
+                                /* Track */
+                                ::-webkit-scrollbar-track {
+                                  background: #f1f1f1;
+                                }
+
+                                /* Handle */
+                                ::-webkit-scrollbar-thumb {
+                                  background: #888;
+                                }
+
+                                /* Handle on hover */
+                                ::-webkit-scrollbar-thumb:hover {
+                                  background: #555;
+                                } *{
+    padding: 0;
+    margin: 0;
+}
+
+
+.box{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+
+    .main-card {
+        background-color: white;
+        background-position: center;
+        background-size: cover;
+        color: rgb(255, 0, 0);
+        width: 500px;
+        margin-left: 10px;
+        height: 500px;
+        border: 4px rgb(13, 110, 253) solid;
+        border-radius: 10px;
+
+    }
+
+    .hed-text {
+        width: 99%;
+        height: 10%;
+        color: rgb(0,1,71);
+        text-shadow: blue;
+        font-weight: bolder;
+        text-transform: uppercase;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        .avtar-content {
+        background-image: url('https://c4.wallpaperflare.com/wallpaper/390/608/888/linux-red-hat-wallpaper-preview.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        border: 2px rgb(26, 2, 86) solid;
+        box-shadow: 0 0px 20px rgb(13, 110, 253);
+        margin-top: 20px;
+    }
+    .avtar-content1 {
+        background-image: url('https://c4.wallpaperflare.com/wallpaper/138/915/764/debian-logo-red-spiral-logo-wallpaper-preview.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        border: 2px rgb(26, 2, 86) solid;
+
+        margin-top: 20px;
+    }
+    .avtar-content2 {
+        background-image: url('/static/upload_comic/profileIcon.jpeg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        border: 2px rgb(26, 2, 86) solid;
+
+        margin-top: 20px;
+    }
+
+    table {
+        justify-self: center;
+        position: absolute;
+        font-weight: bolder;
+        height: 150px;
+        margin-top: 350px;
+        color: rgb(0,1,71);
+        text-transform: uppercase;
+    }
+
+
+    .swap-card {
+        position: absolute;
+        height: 50px;
+        top: 540px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-input {
+        cursor: pointer;
+        width: 200px;
+        height: 35px;
+        margin-right: 20px;
+        -o-border-radius: 35px;
+        -webkit-border-radius: 35px;
+        -moz-border-radius: 35px;
+        -ms-border-radius: 35px;
+        border-radius: 35px;
+        background: rgb(255, 173, 86);
+        border: none;
+        font-size: 24px;
+        color: rgb(23, 23, 23);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      animation: dash_682 1.4s linear infinite;
+}
+
+@keyframes dash_682 {
+  72.5% {
+    opacity: 0;
+    width: 100px;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+
+  }
+  hr.new1{
+  border: 1px solid red;
+}</style>
+</head>
+  <script>
+
+{% for m in messages %}
+      alert('{{ m }}');
+{% endfor %}
+
+</script>
+<body className='snippet-body' >
+
+<div class="main-card" style="margin-left:550px; margin-top:40px;">
+    <div class="hed-text">Profile</div>
+    <div class="edit-profile" style="margin-bottom:10px; margin-left:400px"><a style="text-decoration:none;" href="/profile_update/">Edit Profile</a></div>
+    <hr class="new1">
+    <div class="card-body">
+        <div class=""  ><img src="{% static 'profile.png' %}" style="width:100px; height:100px;" alt=""></div>
+        <hr class="new1">
+
+        <table>
+            <tbody>
+                <tr>
+                    <td scope="col">Name :</td>
+                    <td scope="col">{{u.username}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">Phone :</td>
+                    <td scope="col">7300088773</td>
+                </tr>
+                <tr>
+                    <td scope="col">Email :</td>
+                    <td scope="col">{{u.email}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="swap-card1"></div>
+
+    </div>
+
+</div>
+
+
+<script type='text/javascript'>
+var myLink = document.querySelector('a[href="#"]');
+myLink.addEventListener('click', function(e) {
+          e.preventDefault();
+       });
+</script>
+</body>
+{% endblock %}
+</html>
